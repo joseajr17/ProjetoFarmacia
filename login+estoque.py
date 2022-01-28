@@ -151,29 +151,27 @@ class Banco_De_Dados():
         # Vai mandar uma notificação por e-mail quando a quantidade de um produto for menor que
         # sua quantidade mínima. ( Essa função é invocada em alterar_remedio() )
 
-        # E-mail que vai mandar a mensagem:
-        # emailqueodevquiser@email.com
-        # senha: senhaqueodevquiser
+        # E-mail que vai mandar a mensagem: Escolha um email
+        # senha: Escolha uma senha
 
-        # E-mail que vai receber a mensagem:
-        # emailqueodevquiser@email.com
-        # senha: senhaqueodevquiser
+        # E-mail que vai receber a mensagem: Escolha um email
+        # senha: Escolha uma senha
 
         self.variaveis()
 
         try:
             server = smtplib.SMTP('smtp.gmail.com', 587)
             server.starttls()
-            server.login('emailqueodevquiser@email.com', 'senhaqueodevquiser@email.com')
-            server.sendmail('emailqueodevquiser@email.com', 'emailqueodevquiser@email.com',
+            server.login('', '')
+            server.sendmail('', '',
                             f'O medicamento {self.nome_comercial} esta em falta no estoque.'
                             f'Verifique o estoque o mais breve possivel.')
         except:
             try:
                 server = smtplib.SMTP('smtp.gmail.com', 587)
                 server.starttls()
-                server.login('emailqueodevquiser@email.com', 'senhaqueodevquiser@email.com')
-                server.sendmail('emailqueodevquiser@email.com', 'emailqueodevquiser@email.com',
+                server.login('', '')
+                server.sendmail('', '',
                                 f'Um medicamento esta em falta no estoque.'
                                 f'Verifique o estoque o mais breve possivel.')
             except:
@@ -624,8 +622,8 @@ class tela_Login(Banco_De_Dados):
         #verifica se o usuário e a senha estão corretos, caso contrário
         #exibe uma mensagem de erro
 
-        usuarioCorreto = "farmaceutico.estoque@gmail.com"
-        senhaCorreta = "123456"
+        usuarioCorreto = "usuarioCorreto"
+        senhaCorreta = "senhaCorreta"
 
         if self.nomeEntry.get() == usuarioCorreto and self.senhaEntry.get() == senhaCorreta:
             print("Usuario logado")
